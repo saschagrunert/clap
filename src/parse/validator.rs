@@ -174,9 +174,10 @@ impl<'b, 'c, 'z> Validator<'b, 'c, 'z> {
                 if let Some(a) = self.p.app.find(k) {
                     if let Some(ref v) = a.blacklist {
                         if v.contains(&name) {
+                            println!("{} ", k);
                             return Err(Error::argument_conflict(
                                 a,
-                                Some(a.to_string()),
+                                Some(name.to_string()),
                                 &*usg,
                                 self.p.app.color(),
                             ));
